@@ -85,5 +85,10 @@ int main()
 			output[1] = steck[(tail - 1 + par + 2) % (par + 2)];
 		}
 	}
+	fprintf(out, "\n%d", sum);
+	printf("%d\n", max);
+	printf("%d -- %d", output[0], output[1]);
+	free(steck);
+	free(steck2);
 	return 0;
 }
