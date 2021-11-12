@@ -63,6 +63,17 @@ struct uint1024_t* from_uint(unsigned int y)
 	}
 	return x;
 }
+struct uint1024_t* add_op(struct uint1024_t* x, struct uint1024_t* y)
+{
+	struct uint1024_t* z = malloc(sizeof(struct uint1024_t) + 140);
+	int b = 0;
+	for (int i = k; i >= 1; i--)
+	{
+		z->a[i] = (x->a[i] + y->a[i] + b) % EF;
+		b = (x->a[i] + y->a[i] + b) / EF;
+	}
+	return z;
+}
 int main()
 {
 	return 0;
