@@ -154,3 +154,4 @@ int main()
 	free(z);
 	return 0;
 }
+//fixed
