@@ -92,4 +92,4 @@ int main()
 	free(steck2);
 	return 0;
 }
-//fixed
+//fixed naruto is the best anime
