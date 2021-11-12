@@ -138,5 +138,6 @@ struct uint1024_t* subtr_op(struct uint1024_t* x, struct uint1024_t* y)
 }
 int main()
 {
+	//naruto is the best anime
 	return 0;
 }
