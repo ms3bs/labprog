@@ -39,5 +39,30 @@ int main(int argc, char* argv[])
 		}
 		c += 1;
 	}
+	if (strcmp(argv[1], "[-l]") + strcmp(argv[1], "[--linies]") == 1)
+	{
+		if (c == 0)
+		{
+			printf("0");
+		}
+		else
+		{
+			printf("%d", l);
+		}
+		return 0;
+	}
+	if (strcmp(argv[1], "[-c]") + strcmp(argv[1], "[--bytes]") == 1)
+	{
+		printf("%d", c);
+		return 0;
+	}
+	if (strcmp(argv[1], "[-w]") + strcmp(argv[1], "[--words]") == 1)
+	{
+		printf("%d", w);
+		return 0;
+	}
+	printf("такой функции нет\n");
+	printf("1.option\n  -l, --lines\n  -c, --bytes\n  -w, --words\n");
+	fclose(f);
 	return 0;
 }
