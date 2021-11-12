@@ -52,6 +52,17 @@ void pintf_value(struct uint1024_t* x)
 		}
 	}
 }
+struct uint1024_t* from_uint(unsigned int y)
+{
+	struct uint1024_t* x = malloc(sizeof(struct uint1024_t) + 140);
+	x->a[k] = y % EF;
+	x->a[k - 1] = y / EF;
+	for (int i = 1; i < k - 1; i++)
+	{
+		x->a[i] = 0;
+	}
+	return x;
+}
 int main()
 {
 	return 0;
