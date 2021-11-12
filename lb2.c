@@ -97,6 +97,45 @@ struct uint1024_t* subtr_op(struct uint1024_t* x, struct uint1024_t* y)
 	}
 	return z;
 }
+struct uint1024_t* mult_op(struct uint1024_t* x, struct uint1024_t* y)
+{
+	struct uint1024_t* z = malloc(sizeof(struct uint1024_t) + 140);
+	for (int i = 1; i <= k; i++)
+	{
+		z->a[i] = 0;
+	}
+	int c, c2, b = 0, d, d2;
+	for (int i = k; i >= 1; i--)
+	{
+		c = x->a[i];
+		for (int j = 1; j < 10; j++)
+		{
+			for (int i2 = k; i2 >= 1; i2--)
+			{
+				c2 = y->a[i2];
+				for (int j2 = 1; j2 < 10; j2++)
+				{
+					d = 1;
+					for (int x = 1; x <= (j + j2 - 2) % 9; x++)
+					{
+						d = d * 10;
+					}
+					if (k - (k - i) - (k - i2) - (j + j2 - 2) / 9 - 1 < 0)
+					{
+						continue;
+					}
+					z->a[k - (k - i) - (k - i2) - (j + j2 - 2) / 9] += (c % 10 * (c2 % 10) + b) % 10 * d;
+					b = (c % 10 * (c2 % 10) + b) / 10;
+					z->a[k - (k - i) - (k - i2) - (j + j2 - 2) / 9 - 1] += z->a[k - (k - i) - (k - i2) - (j + j2 - 2) / 9] / EF;
+					z->a[k - (k - i) - (k - i2) - (j + j2 - 2) / 9] %= EF;
+					c2 = c2 / 10;
+				}
+			}
+			c = c / 10;
+		}
+	}
+	return z;
+}
 int main()
 {
 	return 0;
