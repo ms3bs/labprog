@@ -85,6 +85,5 @@ int main()
 			output[1] = steck[(tail - 1 + par + 2) % (par + 2)];
 		}
 	}
-
 	return 0;
 }
