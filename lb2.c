@@ -138,5 +138,19 @@ struct uint1024_t* mult_op(struct uint1024_t* x, struct uint1024_t* y)
 }
 int main()
 {
+	struct uint1024_t* x = malloc(sizeof(struct uint1024_t) + 140);
+	struct uint1024_t* y = malloc(sizeof(struct uint1024_t) + 140);
+	struct uint1024_t* z = malloc(sizeof(struct uint1024_t) + 140);
+	scanf_value(x);
+	scanf_value(y);
+	z = mult_op(x, y);
+	pintf_value(z);
+	printf("\n");
+	z = add_op(x, y);
+	pintf_value(z);
+	printf("\n");
+	free(x);
+	free(y);
+	free(z);
 	return 0;
 }
