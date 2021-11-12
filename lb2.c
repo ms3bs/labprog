@@ -74,6 +74,29 @@ struct uint1024_t* add_op(struct uint1024_t* x, struct uint1024_t* y)
 	}
 	return z;
 }
+struct uint1024_t* subtr_op(struct uint1024_t* x, struct uint1024_t* y)
+{
+	struct uint1024_t* z = malloc(sizeof(struct uint1024_t) + 140);
+	for (int i = 1; i <= k; i++)
+	{
+		z->a[i] = 0;
+	}
+	int b = 0;
+	for (int i = k; i >= 1; i--)
+	{
+		if (x->a[i] - y->a[i] - b < 0)
+		{
+			z->a[i] = EF + x->a[i] - y->a[i] - b;
+			b = 1;
+		}
+		else
+		{
+			z->a[i] = x->a[i] - y->a[i] - b;
+			b = 0;
+		}
+	}
+	return z;
+}
 int main()
 {
 	return 0;
