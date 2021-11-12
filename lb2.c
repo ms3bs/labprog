@@ -33,6 +33,25 @@ void scanf_value(struct uint1024_t* x)
 		c *= 10;
 	}
 }
+void pintf_value(struct uint1024_t* x)
+{
+	int d, c, b = 0;
+	for (int i = 1; i <= k; i++)
+	{
+		d = x->a[i];
+		c = EF / 10;
+		for (int j = 0; j < 9; j++)
+		{
+			if (d / c != 0 || b == 1)
+			{
+				printf("%d", d / c);
+				b = 1;
+			}
+			d = d % c;
+			c = c / 10;
+		}
+	}
+}
 int main()
 {
 	return 0;
