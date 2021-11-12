@@ -18,5 +18,26 @@ int main(int argc, char* argv[])
 		printf("такого файла нет");
 		return 0;
 	}
+	int a, b = 0, l = 1, w = 0, c = 0;
+	while ((a = fgetc(f)) != EOF)
+	{
+		if (a == '\n')
+		{
+			l += 1;
+		}
+		if (a == ' ' || a == '\n' || a == '\t')
+		{
+			b = 0;
+		}
+		else
+		{
+			if (b == 0)
+			{
+				w += 1;
+			}
+			b = 1;
+		}
+		c += 1;
+	}
 	return 0;
 }
